@@ -19,7 +19,7 @@ func _ready() -> void:
 	var is_on_android = OS.has_feature("android") or OS.has_feature("web_android") or OS.has_feature("web_ios")
 	mobile_layer.visible = is_on_android
 	joypads = Input.get_connected_joypads()
-	
+	printt("JOYPADS:", joypads)
 	if is_on_android:
 		left_axis_lambda = func(): return player_mobile_control.get_left_axis()
 		right_axis_lambda = func(): return player_mobile_control.get_right_axis()
