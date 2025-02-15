@@ -28,11 +28,6 @@ func _ready() -> void:
 		left_axis_lambda = func(): return format_value(Input.get_joy_axis(joypad_id, JOY_AXIS_LEFT_Y))
 		right_axis_lambda = func(): return format_value(Input.get_joy_axis(joypad_id, JOY_AXIS_RIGHT_Y))
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventJoypadMotion:
-		print(event)
-		print(Input.get_connected_joypads())
-
 func format_value(value: float) -> float:
 	if abs(value) < 0.05: return 0
 	return value

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://begucp5s4axeq" path="res://player/control/drone_controls.tscn" id="2_ekmck"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ekmck"]
+radius = 0.26292
 
 [node name="Drone" type="CharacterBody3D"]
 script = ExtResource("1_ekmck")
