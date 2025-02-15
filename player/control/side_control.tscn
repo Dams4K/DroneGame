@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpywg2qmcm6nf"]
+
+[ext_resource type="Script" uid="uid://cqxe5qxr5bsni" path="res://player/control/side_control.gd" id="1_xxa0h"]
+
+[node name="SideControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xxa0h")

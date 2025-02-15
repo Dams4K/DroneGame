@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://begucp5s4axeq"]
+
+[ext_resource type="Script" uid="uid://di5y6cu6lolur" path="res://player/control/drone_controls.gd" id="1_151os"]
+[ext_resource type="PackedScene" uid="uid://b15etqmsl68nl" path="res://player/control/player_mobile_control.tscn" id="2_q7j7f"]
+
+[node name="DroneControls" type="Node"]
+script = ExtResource("1_151os")
+
+[node name="MobileLayer" type="CanvasLayer" parent="."]
+
+[node name="PlayerMobileControl" parent="MobileLayer" instance=ExtResource("2_q7j7f")]
+
+[node name="DebugLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="DebugLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DebugLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="LeftPercentageLabel" type="Label" parent="DebugLayer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="RightPercentageLabel" type="Label" parent="DebugLayer/CenterContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b15etqmsl68nl"]
+
+[ext_resource type="PackedScene" uid="uid://cpywg2qmcm6nf" path="res://player/control/side_control.tscn" id="1_1pisk"]
+[ext_resource type="Script" uid="uid://sn4xjy6mm8y2" path="res://player/control/player_mobile_control.gd" id="1_an24e"]
+
+[node name="PlayerMobileControl" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 150.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_an24e")
+
+[node name="LeftSide" parent="." instance=ExtResource("1_1pisk")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightSide" parent="." instance=ExtResource("1_1pisk")]
+layout_mode = 2
+size_flags_horizontal = 3
