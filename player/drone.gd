@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	velocity.y = inverted * y_move * Y_SPEED
 	rotation.y += y_rotation * ROTATE_SPEED * delta
 	
-	if abs(y_move) > 1:
+	if abs(y_move) <= 1:
+		camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * CAMERA_MAX_ROTATION_X / 4, delta * CAMERA_ROTATION_X_SPEED / 4)
+	elif abs(y_move) > 1:
 		#camera_3d.rotation.x = clamp(camera_3d.rotation.x + inverted * y_move * delta, -CAMERA_MAX_ROTATION_X, CAMERA_MAX_ROTATION_X)
 		camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * CAMERA_MAX_ROTATION_X, delta * CAMERA_ROTATION_X_SPEED)
 	else:
