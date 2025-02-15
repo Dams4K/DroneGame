@@ -19,7 +19,7 @@ func _ready() -> void:
 	var is_on_android = OS.has_feature("android") or OS.has_feature("web_android") or OS.has_feature("web_ios")
 	mobile_layer.visible = is_on_android
 	joypads = Input.get_connected_joypads()
-	printt("JOYPADS:", joypads)
+	
 	if is_on_android:
 		left_axis_lambda = func(): return player_mobile_control.get_left_axis()
 		right_axis_lambda = func(): return player_mobile_control.get_right_axis()
@@ -27,6 +27,11 @@ func _ready() -> void:
 		var joypad_id = joypads[0]
 		left_axis_lambda = func(): return format_value(Input.get_joy_axis(joypad_id, JOY_AXIS_LEFT_Y))
 		right_axis_lambda = func(): return format_value(Input.get_joy_axis(joypad_id, JOY_AXIS_RIGHT_Y))
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion:
+		print(event)
+		print(Input.get_connected_joypads())
 
 func format_value(value: float) -> float:
 	if abs(value) < 0.05: return 0
