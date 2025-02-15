@@ -16,7 +16,7 @@ var right_axis_lambda: Callable
 func _ready() -> void:
 	debug_layer.visible = OS.has_feature("debug")
 	
-	var is_on_android = OS.has_feature("android")
+	var is_on_android = OS.has_feature("android") or OS.has_feature("web_android")
 	mobile_layer.visible = is_on_android
 	joypads = Input.get_connected_joypads()
 	
