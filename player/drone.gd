@@ -39,3 +39,7 @@ func _physics_process(delta: float) -> void:
 	camera_3d.rotation.z = clamp(y_rotation * delta, -CAMERA_MAX_ROTATION_Z, CAMERA_MAX_ROTATION_Z)
 	
 	move_and_slide()
+	
+	var nb_collision = get_slide_collision_count()
+	if nb_collision > 0 and Input.get_connected_joypads().size() > 0:
+		Input.vibrate_handheld(100)
