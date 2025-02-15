@@ -41,8 +41,8 @@ jobs:
       - name: Install Godot
         run: |
           # Download godot executable and templates
-          curl ${GODOT_EXECUTABLE_DOWNLOAD_URL} --output godot.zip
-          curl ${GODOT_TEMPLATES_DOWNLOAD_URL} --output templates.tpz
+          curl -L -o godot.zip ${GODOT_EXECUTABLE_DOWNLOAD_URL}
+          curl -L -o templates.tpz ${GODOT_TEMPLATES_DOWNLOAD_URL}
 
           unzip godot.zip -d godot
           unzip templates.tpz
