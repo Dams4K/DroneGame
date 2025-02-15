@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://deh7won5fdi5o"]
+[gd_scene load_steps=8 format=3 uid="uid://deh7won5fdi5o"]
 
 [ext_resource type="Material" uid="uid://c4wmdw8jf28on" path="res://assets/materials/ground_proto.tres" id="1_fj7yv"]
+[ext_resource type="Material" uid="uid://hps8ren00kjk" path="res://assets/materials/torus.tres" id="2_aqk2v"]
 [ext_resource type="Material" uid="uid://270ab8th2jvj" path="res://assets/materials/pilar_proto.tres" id="2_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://dypswuqyq1t7" path="res://player/drone.tscn" id="3_tlwt5"]
 
@@ -25,7 +26,8 @@ Y_SPEED = 6.0
 MOVE_SPEED = 16.0
 ROTATE_SPEED = 2.5
 CAMERA_MAX_ROTATION_X = 0.4
-CAMERA_MAX_ROTATION_Z = 0.15
+CAMERA_MAX_ROTATION_Z = 0.2
+CAMERA_ROTATION_X_RESET_SPEED = 0.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_036b0")
@@ -41,7 +43,7 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_tlwt5")
+material = ExtResource("2_aqk2v")
 
 [node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.32935, -0.117817, 0.936829, -0.376207, 0.893653, 0.244646, 10.7484, 5.17983, -3.6771)
@@ -50,7 +52,7 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_tlwt5")
+material = ExtResource("2_aqk2v")
 
 [node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.0269999, 0.458769, 0.888145, -0.499274, 0.775905, -0.385614, 2.74844, 6.17983, -10.6771)
@@ -59,7 +61,7 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_tlwt5")
+material = ExtResource("2_aqk2v")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 use_collision = true

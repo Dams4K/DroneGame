@@ -7,6 +7,9 @@ extends CharacterBody3D
 @export var CAMERA_MAX_ROTATION_X = 0.15
 @export var CAMERA_MAX_ROTATION_Z = 0.05
 
+@export var CAMERA_ROTATION_X_SPEED = 2.0
+@export var CAMERA_ROTATION_X_RESET_SPEED = 0.7
+
 @onready var drone_controls: Node = $DroneControls
 
 @onready var camera_3d: Camera3D = $Camera3D
@@ -26,7 +29,11 @@ func _physics_process(delta: float) -> void:
 	velocity.y = inverted * y_move * Y_SPEED
 	rotation.y += y_rotation * ROTATE_SPEED * delta
 	
-	camera_3d.rotation.x = clamp(camera_3d.rotation.x + inverted * y_move * delta, -CAMERA_MAX_ROTATION_X, CAMERA_MAX_ROTATION_X)
+	if abs(y_move) > 1:
+		#camera_3d.rotation.x = clamp(camera_3d.rotation.x + inverted * y_move * delta, -CAMERA_MAX_ROTATION_X, CAMERA_MAX_ROTATION_X)
+		camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * CAMERA_MAX_ROTATION_X, delta * CAMERA_ROTATION_X_SPEED)
+	else:
+		camera_3d.rotation.x = move_toward(camera_3d.rotation.x, 0.0, delta * CAMERA_ROTATION_X_RESET_SPEED)
 	camera_3d.rotation.z = clamp(y_rotation * delta, -CAMERA_MAX_ROTATION_Z, CAMERA_MAX_ROTATION_Z)
 	
 	move_and_slide()
