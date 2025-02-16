@@ -1,20 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://dypswuqyq1t7"]
 
 [ext_resource type="Script" uid="uid://bvm403jtprjpu" path="res://player/drone.gd" id="1_ekmck"]
+[ext_resource type="Curve" uid="uid://t4cstkwjaqw2" path="res://assets/curves/rotation_x.tres" id="2_5gtl7"]
 [ext_resource type="Curve" uid="uid://cxsvtwynwrlm3" path="res://assets/curves/drone_rotation_abs.tres" id="2_c1vue"]
 [ext_resource type="PackedScene" uid="uid://begucp5s4axeq" path="res://player/control/drone_controls.tscn" id="2_ekmck"]
-
-[sub_resource type="Curve" id="Curve_ekmck"]
-_limits = [0.0, 2.0, 0.0, 2.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.787234, 0.0449438), 0.0, 0.0, 0, 0, Vector2(1.05319, 0.494382), 2.34707, 2.34707, 0, 0, Vector2(1.31915, 1.03371), 0.576098, 0.576098, 0, 0, Vector2(2, 1.19101), 0.0, 0.0, 0, 0]
-point_count = 5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ekmck"]
 radius = 0.26292
 
 [node name="Drone" type="CharacterBody3D"]
 script = ExtResource("1_ekmck")
-rotation_curve = SubResource("Curve_ekmck")
+rotation_curve = ExtResource("2_5gtl7")
 CAMERA_ROTATION_X_SPEED = 0.9
 CAMERA_ROTATION_X_RESET_SPEED = 0.5
 ROTATION_MAX_SPEED = 10.0
