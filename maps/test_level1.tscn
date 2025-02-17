@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://deh7won5fdi5o"]
 
-[ext_resource type="Material" uid="uid://c4wmdw8jf28on" path="res://assets/materials/ground_proto.tres" id="1_fj7yv"]
-[ext_resource type="Material" uid="uid://hps8ren00kjk" path="res://assets/materials/torus.tres" id="2_aqk2v"]
-[ext_resource type="Material" uid="uid://270ab8th2jvj" path="res://assets/materials/pilar_proto.tres" id="2_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://dypswuqyq1t7" path="res://player/drone.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dypswuqyq1t7" path="res://player/drone.tscn" id="1_lu52r"]
+[ext_resource type="Material" uid="uid://hps8ren00kjk" path="res://assets/materials/torus.tres" id="2_ignw4"]
+[ext_resource type="Material" uid="uid://c4wmdw8jf28on" path="res://assets/materials/ground_proto.tres" id="3_vxe7g"]
+[ext_resource type="Material" uid="uid://270ab8th2jvj" path="res://assets/materials/pilar_proto.tres" id="4_cegip"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlwt5"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,15 +18,16 @@ sky = SubResource("Sky_aqk2v")
 tonemap_mode = 2
 glow_enabled = true
 
-[node name="World" type="Node3D"]
+[node name="TestLevel1" type="Node3D"]
 
-[node name="Drone" parent="." instance=ExtResource("3_tlwt5")]
+[node name="Drone" parent="." instance=ExtResource("1_lu52r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 Y_SPEED = 6.0
 MOVE_SPEED = 16.0
 ROTATE_SPEED = 2.5
 CAMERA_MAX_ROTATION_X = 0.4
 CAMERA_MAX_ROTATION_Z = 0.2
+CAMERA_ROTATION_X_SPEED = 1.5
 CAMERA_ROTATION_X_RESET_SPEED = 0.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -43,7 +44,7 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_aqk2v")
+material = ExtResource("2_ignw4")
 
 [node name="CSGTorus3D2" type="CSGTorus3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.32935, -0.117817, 0.936829, -0.376207, 0.893653, 0.244646, 10.7484, 5.17983, -3.6771)
@@ -52,7 +53,7 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_aqk2v")
+material = ExtResource("2_ignw4")
 
 [node name="CSGTorus3D3" type="CSGTorus3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0.0269999, 0.458769, 0.888145, -0.499274, 0.775905, -0.385614, 2.74844, 6.17983, -10.6771)
@@ -61,95 +62,95 @@ inner_radius = 1.2
 outer_radius = 1.5
 sides = 12
 ring_sides = 10
-material = ExtResource("2_aqk2v")
+material = ExtResource("2_ignw4")
 
 [node name="Ground" type="CSGBox3D" parent="."]
 use_collision = true
 size = Vector3(100, 1, 100)
-material = ExtResource("1_fj7yv")
+material = ExtResource("3_vxe7g")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25.3612)
 operation = 2
 radius = 7.86133
-material = ExtResource("1_fj7yv")
+material = ExtResource("3_vxe7g")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.82477, 2, -3.20947)
 use_collision = true
 size = Vector3(3.35046, 10, 7.41895)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458694, -2.44333, 0.132202)
 operation = 2
 use_collision = true
 size = Vector3(5.62613, 5.11334, 3.02222)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458694, 1.78712, 0.132202)
 operation = 2
 use_collision = true
 size = Vector3(5.62613, 1.57425, 3.02222)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, -4)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -4)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.948, 2, 14.3175)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05197, 2, 14.3175)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.05197, 2, -37.6825)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.31, 2, -13.5203)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7618, 2, -15.4294)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11508, 2, -14.2892)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0502, 2, -3.94376)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 2, 5)
 use_collision = true
 size = Vector3(1, 10, 1)
-material = ExtResource("2_tlwt5")
+material = ExtResource("4_cegip")

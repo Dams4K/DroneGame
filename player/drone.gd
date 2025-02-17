@@ -35,17 +35,10 @@ func _physics_process(delta: float) -> void:
 	velocity.z = move_dir.z
 	velocity.y = inverted * y_move * Y_SPEED
 	
-	var v = abs(y_rotation)/2
-	#v = max(abs(left_axis), abs(right_axis))
-	var rotate_speed = ROTATION_MAX_SPEED * ROTATION_SPEED_CURVE.sample(v)
+	var rotate_speed = ROTATION_MAX_SPEED * ROTATION_SPEED_CURVE.sample(abs(y_rotation)/2)
 	rotation.y += sign(y_rotation) * rotate_speed * delta
 	
-	#if abs(y_move) <= 1:
-		#camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * CAMERA_MAX_ROTATION_X / 4, delta * CAMERA_ROTATION_X_SPEED / 4)
-	#elif abs(y_move) > 1:
-		##camera_3d.rotation.x = clamp(camera_3d.rotation.x + inverted * y_move * delta, -CAMERA_MAX_ROTATION_X, CAMERA_MAX_ROTATION_X)
-		#camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * CAMERA_MAX_ROTATION_X, delta * CAMERA_ROTATION_X_SPEED)
-	if y_move != 0:
+	if abs(y_move) != 0:
 		var max_rotation = rotation_curve.sample(abs(y_move))
 		camera_3d.rotation.x = move_toward(camera_3d.rotation.x, inverted * sign(y_move) * max_rotation, delta * CAMERA_ROTATION_X_SPEED)
 	else:

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="DroneGame"
-run/main_scene="uid://deh7won5fdi5o"
+run/main_scene="uid://l46bv86dekik"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

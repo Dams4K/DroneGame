@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://0fh8m2k1mpo6"]
+
+[node name="MapButton" type="Button"]
+custom_minimum_size = Vector2(240, 120)
