@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cc3g5338yolid"]
 
 [ext_resource type="PackedScene" uid="uid://dypswuqyq1t7" path="res://player/drone.tscn" id="1_jwoc7"]
-[ext_resource type="PackedScene" uid="uid://b4lm4fsnb2qoy" path="res://assets/models/maps/test_level.blend" id="2_m7opp"]
-[ext_resource type="LightmapGIData" uid="uid://mdtmbpas83pq" path="res://assets/lightmaps/test_level.lmbake" id="3_l0mta"]
+[ext_resource type="PackedScene" uid="uid://dmok56xr5b3r" path="res://assets/models/maps/test_level.glb" id="2_a8trq"]
+[ext_resource type="LightmapGIData" uid="uid://bt7ixi5v7pxla" path="res://assets/lightmaps/test_level2.lmbake" id="3_jwoc7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_p4t0f"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,7 +31,7 @@ CAMERA_MAX_ROTATION_Z = 0.2
 CAMERA_ROTATION_X_SPEED = 1.5
 CAMERA_ROTATION_X_RESET_SPEED = 0.9
 
-[node name="test_level" parent="." instance=ExtResource("2_m7opp")]
+[node name="test_level" parent="." instance=ExtResource("2_a8trq")]
 
 [node name="LightmapGI" type="LightmapGI" parent="."]
-light_data = ExtResource("3_l0mta")
+light_data = ExtResource("3_jwoc7")

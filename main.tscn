@@ -24,3 +24,8 @@ anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 columns = 5
+
+[node name="DebugLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

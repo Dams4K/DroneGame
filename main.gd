@@ -6,8 +6,13 @@ const MAP_BUTTON = preload("res://map_button.tscn")
 
 @onready var grid_container: GridContainer = $GridContainer
 
+@onready var debug_label: Label = $DebugLabel
+
 func _ready() -> void:
 	generate_maps_buttons()
+	
+	
+	debug_label.text = str(ResourceLoader.list_directory("res://assets/lightmaps/"))
 
 func generate_maps_buttons():
 	for level: PackedScene in levels:
